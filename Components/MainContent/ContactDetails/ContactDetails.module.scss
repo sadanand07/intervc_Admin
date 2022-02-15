@@ -1,0 +1,206 @@
+@use "../../../Utility/Styles/Variable" as *;
+@use "../../../Utility/Styles/Helper" as *;
+
+// Main Home Content
+.intro {
+	@include flexCol(center, flex-start);
+	gap: 30px;
+
+	width: 100%;
+	height: fit-content;
+	@include paddingVertical(15px, 0px);
+
+	// Start - Common Styles
+	& * {
+		transition: all 0.1s linear;
+	}
+
+	& .icon {
+		transition: none;
+	}
+
+	& button {
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+	& :is(h1, h2, h3, h4, h5, h6, p, a, th, td) {
+		color: var(--clr_blueDark);
+	}
+	// End - Common Styles
+
+	// Account Holder Profile
+	& .profile {
+		@include gridCol((200px 100fr), center, center);
+		gap: 40px;
+
+		width: 100%;
+		height: fit-content;
+		padding: 0 15px 30px 15px;
+
+		// Profile Image
+		& .imageContainer {
+			height: 200px;
+
+			& .image {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 10px;
+			}
+		}
+
+		// Interview Details
+		& .text {
+			@include gridCol((33.33fr 33.33fr 33.33fr), center, flex-start);
+			gap: 20px;
+
+			width: 100%;
+			height: 100%;
+			padding: 30px;
+			border-radius: 15px;
+			background-color: var(--clr_white);
+			box-shadow: 4px 4px 30px var(--clr_blueShadowLight);
+
+			// Informations
+			& .field {
+				font-size: 1.1rem;
+				font-weight: var(--fw_semiBold);
+				color: var(--clr_blueDark);
+			}
+
+			& .details {
+				font-size: 1rem;
+				font-weight: var(--fw_medium);
+				color: var(--clr_blueDark);
+			}
+		}
+	}
+
+	// Table Contents
+	& .interview {
+		width: 100%;
+		height: 100%;
+
+		// Heading
+		& .head {
+			padding-bottom: 20px;
+
+			& .details {
+				font-size: 1.5rem;
+				font-weight: var(--fw_semiBold);
+			}
+		}
+
+		& .tableContent {
+			width: 100%;
+			height: 100%;
+
+			& .table {
+				@include flexCol(flex-start, flex-start);
+				gap: 4px;
+                font-size: 1rem;
+				width: 100%;
+				height: 100%;
+				table-layout: fixed;
+				border-collapse: collapse;
+
+				& :is(.tableHead, .tableBody) {
+					width: 100%;
+					height: fit-content;
+
+					& .tableRow {
+							@include gridCol((8fr 18fr 8fr 10fr 15fr  8fr 10fr), center, center);
+						gap: 1px;
+
+						width: 100%;
+						height: 45px;
+
+						& .details {
+							@include flex(center, center);
+
+							text-align: center;
+
+							width: 100%;
+							height: 100%;
+
+							&:is(:nth-of-type(2), :nth-of-type(4)) {
+								border-left: 3px solid var(--clr_greyLight);
+								border-right: 3px solid var(--clr_greyLight);
+							}
+							&:nth-of-type(6) {
+								border-left: 3px solid var(--clr_greyLight);
+							}
+						}
+					}
+				}
+
+				& .tableHead {
+					margin-bottom: 10px;
+
+					& .details {
+						font-size: 1.2rem;
+						font-weight: var(--fw_semiBold);
+					}
+				}
+
+				& .tableBody {
+					width: 100%;
+					height: 100%;
+					overflow: auto;
+					@include gridCol((8fr 18fr 8fr 10fr 5fr 5fr 5fr 8fr 10fr), center, center);
+						
+					&::-webkit-scrollbar {
+						display: none;
+					}
+
+					& .tableRow {
+						border-radius: 3px;
+
+						&:nth-of-type(odd) {
+							background-color: var(--clr_blueLight);
+						}
+
+						&:is(:hover, :focus) {
+							background-color: var(--clr_green);
+							box-shadow: 0 5px 15px var(--clr_greenLight);
+
+							& :is(.details, .btn) {
+								color: var(--clr_white);
+							}
+						}
+
+						& .details {
+							font-size: 1rem;
+							font-weight: var(--fw_medium);
+
+							overflow: hidden;
+							white-space: nowrap;
+							text-overflow: ellipsis;
+							padding: 0 10px;
+
+							&:nth-last-of-type(1) {
+								padding: 0;
+							}
+
+							& .btn {
+								@include flex(center, center);
+
+								font-size: 0.9rem;
+
+								width: 100%;
+								height: 100%;
+								border-radius: 3px;
+
+								&:is(:hover, :focus) {
+									background-color: var(--clr_blue);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

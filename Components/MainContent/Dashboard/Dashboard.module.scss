@@ -1,0 +1,121 @@
+@use "../../../Utility/Styles/Variable" as *;
+@use "../../../Utility/Styles/Helper" as *;
+
+// Main Home Content
+.dashboard {
+	@include flexCol(flex-start, flex-start);
+	gap: 20px;
+
+	width: 100%;
+	height: fit-content;
+	@include paddingVertical(0, 60px);
+
+	// Start - Common Styles
+	& * {
+		transition: all 0.1s linear;
+	}
+
+	& .icon {
+		transition: none;
+	}
+
+	& button {
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+	& :is(h1, h2, h3, h4, h5, h6, p, a) {
+		color: var(--clr_blueDark);
+	}
+	// End - Common Styles
+
+	// Heading
+	& .head {
+		& .details {
+			font-size: 1.75rem;
+			font-weight: var(--fw_semiBold);
+		}
+	}
+
+	// Content
+	& .content {
+		@include gridCol((repeat(3, 1fr)), flex-start, flex-start);
+		flex-wrap: wrap;
+		gap: 25px;
+
+		width: 100%;
+
+		& .module {
+			@include flex(center, flex-start);
+			gap: 20px;
+
+			width: 100%;
+			padding: 25px 30px;
+			border-radius: 5px;
+			outline: 3px solid transparent;
+			outline-offset: -3px;
+			background-color: var(--clr_white);
+			box-shadow: 3px 3px 10px var(--clr_blueShadowLight);
+
+			&:is(:hover, :focus) {
+				outline-color: var(--clr_blue);
+			}
+
+			& .icon {
+				width: 22px;
+				height: 22px;
+				padding: 15px;
+				border-radius: 5px;
+				box-sizing: content-box;
+			}
+
+			& .text {
+				@include flexCol(flex-start, flex-start);
+
+				& .title {
+					font-size: 1rem;
+					font-weight: var(--fw_medium);
+				}
+
+				& .details {
+					font-size: 1.75rem;
+					font-weight: var(--fw_semiBold);
+				}
+			}
+		}
+
+		& .module:nth-of-type(1) .icon {
+			color: hsl(195.3, 100%, 75%);
+			background-color: hsl(195.3, 100%, 95%);
+		}
+		& .module:nth-of-type(2) .icon {
+			color: hsl(121.3, 60%, 64.9%);
+			background-color: hsl(121.3, 60%, 92%);
+		}
+		& .module:nth-of-type(3) .icon {
+			color: hsl(336.6, 100%, 80%);
+			background-color: hsl(336.6, 100%, 96%);
+		}
+		& .module:nth-of-type(4) .icon {
+			color: hsl(29.7, 100%, 79.4%);
+			background-color: hsl(29.7, 100%, 95%);
+		}
+		& .module:nth-of-type(5) .icon {
+			color: hsl(7, 83.7%, 75.9%);
+			background-color: hsl(7, 83.7%, 95%);
+		}
+		& .module:nth-of-type(6) .icon {
+			color: hsl(249.4, 85%, 75%);
+			background-color: hsl(249.4, 85%, 95%);
+		}
+		& .module:nth-of-type(7) .icon {
+			color: hsl(354.3, 85%, 66.3%);
+			background-color: hsl(354.3, 85%, 95%);
+		}
+		& .module:nth-of-type(8) .icon {
+			color: hsl(217.7, 100%, 67.1%);
+			background-color: hsl(217.7, 100%, 92%);
+		}
+	}
+}

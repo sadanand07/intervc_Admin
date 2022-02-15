@@ -1,0 +1,128 @@
+@use "../../../Utility/Styles/Variable" as *;
+@use "../../../Utility/Styles/Helper" as *;
+
+// Main Home Content
+.intro {
+	@include flexCol(flex-start, flex-start);
+	gap: 20px;
+
+	width: 100%;
+	height: 100%;
+	@include paddingVertical(0, 75px);
+
+	// Start - Common Styles
+	& * {
+		transition: all 0.1s linear;
+	}
+
+	& .icon {
+		transition: none;
+	}
+
+	& button {
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+	& :is(h1, h2, h3, h4, h5, h6, p, a, th, td) {
+		color: var(--clr_blueDark);
+	}
+	// End - Common Styles
+
+	// Heading
+	& .head {
+		& .details {
+			font-size: 1.75rem;
+			font-weight: var(--fw_semiBold);
+		}
+	}
+
+	// Table Contents
+	& .tableContent {
+		width: 100%;
+		height: 100%;
+
+		& .table {
+			@include flexCol(flex-start, flex-start);
+			gap: 4px;
+
+			width: 100%;
+			height: 100%;
+			table-layout: fixed;
+			border-collapse: collapse;
+
+			& :is(.tableHead, .tableBody) {
+				width: 100%;
+				height: fit-content;
+
+				& .tableRow {
+					@include gridCol((28fr 14fr 8fr 16fr 20fr 10fr), center, center);
+					gap: 1px;
+
+					width: 100%;
+					height: 45px;
+
+					& .details {
+						width: 100%;
+						text-align: center;
+
+						&:is(:nth-of-type(2), :nth-of-type(4)) {
+							border-left: 3px solid var(--clr_greyLight);
+							border-right: 3px solid var(--clr_greyLight);
+						}
+						&:nth-of-type(6) {
+							border-left: 3px solid var(--clr_greyLight);
+						}
+					}
+				}
+			}
+
+			& .tableHead {
+				margin-bottom: 10px;
+
+				& .details {
+					font-size: 1.2rem;
+					font-weight: var(--fw_semiBold);
+				}
+			}
+
+			& .tableBody {
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+
+				&::-webkit-scrollbar {
+					display: none;
+				}
+
+				& .tableRow {
+					border-radius: 3px;
+
+					&:nth-of-type(odd) {
+						background-color: var(--clr_blueLight);
+					}
+
+					&:is(:hover, :focus) {
+						background-color: var(--clr_green);
+						box-shadow: 0 5px 15px var(--clr_greenLight);
+
+						& .details {
+							color: var(--clr_white);
+						}
+					}
+
+					& .details {
+						font-size: 1rem;
+						font-weight: var(--fw_medium);
+
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						padding: 0 10px;
+					}
+				}
+			}
+		}
+	}
+}

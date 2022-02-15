@@ -1,0 +1,180 @@
+@use "../../../Utility/Styles/Variable" as *;
+@use "../../../Utility/Styles/Helper" as *;
+
+// Main Home Content
+.createJob {
+	@include flex(center, center);
+
+	width: 100%;
+	height: fit-content;
+
+	// Start - Common Styles
+	& * {
+		transition: all 0.1s linear;
+	}
+
+	& .icon {
+		transition: none;
+	}
+
+	& :is(button, input, textarea) {
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+	& :is(h1, h2, h3, h4, h5, h6, p, a) {
+		color: var(--clr_blueDark);
+	}
+	// End - Common Styles
+
+	// Main Content
+	& .content {
+		@include gridRow((100fr), center, space-between);
+		gap: 40px;
+
+		width: 100%;
+		padding: 50px 50px 60px 50px;
+		border-radius: 10px;
+		background-color: var(--clr_blueLight);
+
+		// Text Message
+		& .message {
+			@include flexCol(flex-start, center);
+			gap: 5px;
+
+			& .title {
+				font-size: 3rem;
+				font-weight: var(--fw_bold);
+				line-height: 3.2rem;
+				color: var(--clr_blackFade);
+			}
+
+			& .details {
+				font-size: 1.2rem;
+				font-weight: var(--fw_medium);
+				line-height: 2rem;
+				color: var(--clr_blackFade);
+			}
+		}
+
+		// Login & Registration Form
+		& .loginForm {
+			@include flexCol(center, center);
+			gap: 40px;
+
+			width: 100%;
+
+			// Input Field
+			& .inputField {
+				@include flex(flex-start, flex-start);
+				flex-wrap: wrap;
+				gap: 20px;
+
+				width: 100%;
+				height: 100%;
+
+				& .group {
+					flex-basis: calc(50% - 10px);
+					@include flexCol(flex-start, flex-start);
+					gap: 10px;
+
+					width: 100%;
+					height: 100%;
+
+					& .title {
+						font-size: 1rem;
+						font-weight: var(--fw_medium);
+					}
+
+					& .input {
+						font-family: var(--font_primary);
+						font-size: 1.1rem;
+						font-weight: var(--fw_medium);
+						color: var(--clr_blueDark);
+
+						width: 100%;
+						height: 60px;
+						border-radius: 10px;
+						padding: 10px 20px;
+						background-color: var(--clr_white);
+
+						&::placeholder {
+							font-size: 1rem;
+							color: var(--clr_blue);
+						}
+					}
+
+					&:nth-last-of-type(1) {
+						flex-basis: 100%;
+
+						& .input {
+							width: 100%;
+							height: 125px;
+							resize: none;
+						}
+					}
+
+					&.OTP {
+						flex-basis: calc(50% - 10px) !important;
+
+						& .btnOTP {
+							@include gridCol((50fr 25fr 25fr), center, center);
+							gap: 5px;
+
+							& .input {
+								height: 60px;
+							}
+
+							& :is(.btnGet, .btnVerify) {
+								font-size: 0.9rem;
+								font-weight: var(--fw_medium);
+								color: var(--clr_white);
+
+								width: 100%;
+								height: 100%;
+								border-radius: 10px;
+								background-color: var(--clr_blue);
+							}
+
+							& .btnGet:is(:hover, :focus) {
+								background-color: var(--clr_green);
+							}
+
+							& .btnVerify:is(:hover, :focus) {
+								background-color: var(--clr_red);
+							}
+						}
+					}
+				}
+			}
+
+			// Submit Button
+			& .submit {
+				@include flex(center, center);
+
+				width: 50%;
+				height: 60px;
+				margin: 5px 0 0 0;
+				border-radius: 10px;
+				background-color: var(--clr_blue);
+				box-shadow: 0 12px 25px var(--clr_blueShadow);
+
+				&:is(:hover, :focus) {
+					background-color: var(--clr_green);
+					box-shadow: 0 12px 25px var(--clr_greenLight);
+				}
+
+				& .btn {
+					font-size: 1rem;
+					font-weight: var(--fw_medium);
+					color: var(--clr_white);
+
+					width: 100%;
+					height: 100%;
+					background-color: transparent;
+				}
+			}
+		}
+	}
+}

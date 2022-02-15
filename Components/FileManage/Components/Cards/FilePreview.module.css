@@ -1,0 +1,84 @@
+.container {
+	display: flex;
+	float: right;
+	flex-direction: column;
+	height: 610px;
+	width: 450px;
+	left: 0;
+	right: 0;
+	padding-inline-start: 1rem;
+	padding-block-start: 1rem;
+	padding-block-end: 1rem;
+	background-color: rgb(237, 237, 237);
+	overflow: hidden;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	margin-left: 66.9rem;
+	position: fixed;
+}
+
+.container img {
+	margin-top: 1rem;
+	border-radius: 8px;
+	align-self: center;
+	width: 400px;
+}
+
+.container h4 {
+	margin-top: 15px;
+	margin-left: 35px;
+}
+
+.container .disp {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top: 50px;
+	margin-left: 25px;
+}
+
+.disp p {
+	margin-left: 65px;
+}
+
+.btns {
+	display: flex;
+	gap: 60px;
+	justify-content: center;
+	align-items: center;
+	margin-top: 70px;
+}
+
+.btns2 {
+	display: flex;
+	gap: 60px;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+.btns2 button {
+	height: 40px;
+	width: 40px;
+}
+
+.btns button {
+	height: 40px;
+	width: 40px;
+}
+
+.container .headr {
+	display: flex;
+	flex-direction: row;
+	gap: 14rem;
+}
+
+.container .clsicn {
+	cursor: pointer;
+}
+
+@media (max-height: 740px) {
+	.container {
+		height: 550px;
+	}
+}
